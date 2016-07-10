@@ -1,6 +1,6 @@
 {
   "name": "jadepress-vue-spa",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/jade-press/jadepress-vue-spa",
   "author": {
     "email": "zxdong@gmail.com",
@@ -36,8 +36,5 @@
   ],
   "devDependencies": {
     "jade-press": "*"
-  },
-  "dependencies": { 
-    "vue": "1.x"
   }
 }

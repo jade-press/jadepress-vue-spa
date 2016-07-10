@@ -40,38 +40,6 @@ gulp.task('stylus', function() {
 
 })
 
-//build
-gulp.task('build',  function (cb) {
-
-	exec('NODE_ENV=production webpack -p', function (err, stdout, stderr) {
-		cb(stdout)
-		cb(stderr)
-		cb(err)
-	})
-
-})
-
-//dev server
-gulp.task('server-dev',  function (cb) {
-
-	exec('node --debug build/dev-server.js', function (err, stdout, stderr) {
-		cb(stdout)
-		cb(stderr)
-		cb(err)
-	})
-
-})
-
-//webpack
-gulp.task('webpack-dev',  function (cb) {
-	var devPort = require('./build/dev-config').port
-	exec('webpack-dev-server --inline --hot --content-base public/ --history-api-fallback --open --port ' + devPort, function (err, stdout, stderr) {
-		cb(stdout)
-		cb(stderr)
-		cb(err)
-	})
-
-})
 
 gulp.task('watch',  function () {
 
@@ -86,8 +54,5 @@ gulp.task('watch',  function () {
 })
 
 
-gulp.task('default', ['dev'])
+gulp.task('default', ['watch'])
 
-gulp.task('dev', function() {
-	runSequence(['server-dev', 'webpack-dev', 'watch'])
-})

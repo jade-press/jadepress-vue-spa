@@ -1,37 +1,49 @@
-<style lang="stylus">
-.view {
-  transition: all .5s ease;
-}
-.test-enter, .test-leave {
-  opacity: 0;
-  transform: translate3d(10px, 0, 0);
-}
-.v-link-active {
-  color: red;
-}
-[v-cloak] {
-  display: none;
-}
-</style>
 
 <template lang="jade">
-  <div>
-    <p v-show="authenticating" style="color:red">Authenticating...</p>
-    <h1>App Header</h1>
-    <a v-link="{ path: '/inbox/message/123' }">inbox</a>
-    <a v-link="{ path: '/about' }">about</a>
-    <a v-link="{ path: '/user/1234/profile/what' }">user</a>
-    <a v-link="{ path: '/forbidden' }">forbidden</a>
-    <router-view class="view" transition="test" transition-mode="out-in" keep-alive></router-view>
-  </div>
+#content.container
+	.row
+		left-nav(:cats='cats', :search='search', :query='query')
+		.main.col-sm-8.col-md-8.col-lg-9.p-y-2.p-x-3
+			router-view
+			footer
+				hr
+				p
+					|&copy; 2016 
+					a(href='https://github.com/jade-press/jadepress-vue-spa', target='_blank') jadepress-vue-spa
+					|  powered by 
+					a(href='http://jade-press.org', target='_blank') jade-press.org
 </template>
 
 <script>
+import Home from './containers/Home.vue'
+import Cat from './containers/Cat.vue'
+import PostSingle from './containers/PostSingle.vue'
+import Search from './containers/Search.vue'
+import LeftNav from './containers/LeftNav.vue'
+import store from './vuex/store'
+import { cats, query } from './vuex/getters'
+import { fetchItems } from './vuex/actions'
+import { afterCreated } from './glob'
+
 export default {
-  data () {
-    return {
-      authenticating: false
-    }
-  }
+	store
+	,vuex: {
+		actions: {
+			fetchItems
+		}
+	}
+	,created() {
+		this.fetchItems('cats', {})
+	}
+	,ready() {
+		afterCreated()
+	}
+	,components: {
+		Home
+		,Cat
+		,PostSingle
+		,Search
+		,LeftNav
+	}
 }
 </script>

@@ -1,13 +1,14 @@
 
 import Vue from 'vue'
 import App from './App.vue'
-import store from './store'
+import store from './vuex/store'
+import VueRouter from 'vue-router'
+import { sync } from 'vuex-router-sync'
 
+import router from './router'
 
 Vue.config.debug = true
 
-new Vue({
-  el: '#wrapper',
-  store,
-  render: h => h(App)
-})
+sync(store, router)
+
+router.start(App, '#app')

@@ -1,10 +1,8 @@
 
 'use strict'
 
-process.env.NODE_ENV = 'dev'
-
 let config0 = require('../test/e2e/config')
-,port = config0.port
+,port = 9809
 ,devPort = require('./dev-config').port
 ,MongoClient = require('mongodb').MongoClient
 ,pack = require('../package.json')
@@ -17,7 +15,7 @@ config.setting.theme = {
   ,name: pack.name
   ,version: pack.version
 }
-config.local.themeResDev = 'http://127.0.0.1:' + devPort
+if(process.env.NODE_ENV === 'dev') config.local.themeResDev = 'http://127.0.0.1:' + devPort
 config.setting.plugins = {}
 config.setting.mongoStoreOptions.url = 'mongodb://127.0.0.1:27017/test0'
 config.setting.dbLink = 'mongodb://127.0.0.1:27017/test0'

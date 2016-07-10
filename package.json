@@ -1,14 +1,15 @@
 {
   "name": "jadepress-vue-spa",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "jade press react spa theme",
   "main": "index.js",
   "scripts": {
     "test": "npm run e2e",
     "e2e": "node test/e2e/runner.js",
-    "dev": "gulp dev",
-    "dev:webpack": "gulp webpack-dev",
-    "dev:server": "gulp server-dev",
+    "prod": "NODE_ENV=production node build/dev-server.js",
+    "dev": "npm run dev:webpack & npm run dev:server & gulp watch",
+    "dev:webpack": "webpack-dev-server --inline --hot --content-base public/ --history-api-fallback --open --port 8083",
+    "dev:server": "NODE_ENV=dev node build/dev-server.js",
     "build": "NODE_ENV=production webpack -p"
   },
   "repository": {
@@ -63,7 +64,7 @@
     "stylus-loader": "^2.1.1",
     "superagent": "^2.0.0",
     "vue": "^1.0.26",
-    "vue-hot-reload-api": "^2.0.5",
+    "vue-hot-reload-api": "^1.3.3",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
     "vue-pagenav": "^1.3.1",

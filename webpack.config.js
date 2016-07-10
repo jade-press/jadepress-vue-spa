@@ -11,9 +11,9 @@ let config = {
 		path: path.resolve(__dirname, 'public/js/'),
 		libraryTarget: 'var',
 	},
-	externals: {
-	 	'vue': 'Vue'
-	},
+	// externals: {
+	//  	'vue': 'vue'
+	// },
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
 	],
@@ -29,6 +29,18 @@ let config = {
 				test: /\.(html|css)$/,
 				loader: 'raw-loader'
 			}
+      ,{
+        test: /\.vue$/,
+        loader: 'vue'
+      }
+		]
+	}
+	,vue: {
+		loaders: [
+      {
+        test: /\.jade$/,
+        loader: 'jade'
+      }
 		]
 	}
 	,devServer: {
