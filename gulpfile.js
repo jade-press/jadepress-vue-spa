@@ -24,6 +24,17 @@ cssFolder = __dirname + '/public/css'
 	compress: true
 }
 
+//build
+gulp.task('build',  function (cb) {
+
+	exec('NODE_ENV=production webpack -p', function (err, stdout, stderr) {
+		cb(stdout)
+		cb(stderr)
+		cb(err)
+	})
+
+})
+
 gulp.task('stylus', function() {
 
 	gulp.src(cssFolder + '/*.styl')

@@ -6,6 +6,7 @@ import Cat from './containers/Cat.vue'
 import PostSingle from './containers/PostSingle.vue'
 import Search from './containers/Search.vue'
 
+
 Vue.component('cat', Cat)
 Vue.component('post-single', PostSingle)
 Vue.component('search', Search)

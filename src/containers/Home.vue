@@ -26,7 +26,7 @@ export default {
 	}
 	,data: () => ({ maxLink, pageSize })
 	,components: {
-		Post,Pager
+		Post, Pager
 	}
 	,computed: {
 		page: function() {
