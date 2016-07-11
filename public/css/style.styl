@@ -20,12 +20,22 @@ body
 		background #08c
 		color #eee
 
-.loading
+.loading-transition
 	position fixed
 	background #333
-	color #fff
-	font-size 12px
-	border-radius 4px 0 0 4px
-	padding 4px
-	right 0
-	top 5px
+	animation load 5s 1
+	height 2px
+	left 0
+	top 0
+	z-index 100
+	width 100%
+.loading-enter
+	width 0
+.loading-leave
+	display none
+
+@keyframes load
+	0%
+		width 0
+	100%
+		width 100%

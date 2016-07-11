@@ -12,6 +12,7 @@
 					a(href='https://github.com/jade-press/jadepress-vue-spa', target='_blank') jadepress-vue-spa
 					|  powered by 
 					a(href='http://jade-press.org', target='_blank') jade-press.org
+	loading-bar(:onload='onload')
 </template>
 
 <script>
@@ -21,15 +22,19 @@ import PostSingle from './containers/PostSingle.vue'
 import Search from './containers/Search.vue'
 import LeftNav from './containers/LeftNav.vue'
 import store from './vuex/store'
-import { cats, query } from './vuex/getters'
+import { cats, query, onloadPosts, onloadCats } from './vuex/getters'
 import { fetchItems } from './vuex/actions'
 import { afterCreated } from './glob'
+import LoadingBar from './components/LoadingBar.vue'
 
 export default {
 	store
 	,vuex: {
 		actions: {
 			fetchItems
+		}
+		,getters: {
+			onloadPosts, onloadCats
 		}
 	}
 	,created() {
@@ -38,12 +43,18 @@ export default {
 	,ready() {
 		afterCreated()
 	}
+	,computed: {
+		onload: function() {
+			return this.onloadPosts || this.onloadCats
+		}
+	}
 	,components: {
 		Home
 		,Cat
 		,PostSingle
 		,Search
 		,LeftNav
+		,LoadingBar
 	}
 }
 </script>

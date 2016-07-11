@@ -11,8 +11,6 @@ export default {
 	props: ['page', 'path', 'total']
 	,computed: {
 		lastPage: function() {
-			console.log(this.page, 'this.page')
-			console.log(this.total, 'this.total')
 			Math.floor(this.total / pageSize)
 		}
 	}

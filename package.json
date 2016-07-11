@@ -1,6 +1,6 @@
 {
   "name": "jadepress-vue-spa",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "jade press react spa theme",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "prod": "NODE_ENV=production node build/dev-server.js",
     "dev": "npm run dev:webpack & npm run dev:server & gulp watch",
     "dev:webpack": "webpack-dev-server --inline --hot --content-base public/ --history-api-fallback --open --port 8083",
-    "dev:server": "NODE_ENV=dev node build/dev-server.js",
+    "dev:server": "NODE_ENV=dev node --debug build/dev-server.js",
     "build": "NODE_ENV=production webpack -p"
   },
   "repository": {
