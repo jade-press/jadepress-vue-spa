@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jade-press/jadepress-vue-spa.svg?branch=master)](https://travis-ci.org/jade-press/jadepress-vue-spa)
 
-[jade-press](http://jade-press.org) react single page theme
+[jade-press](http://jade-press.org) react single page theme(vue1.x, vuex, vue-router)
 
 ## use
 ```javascript
