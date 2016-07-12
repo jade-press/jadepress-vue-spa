@@ -29,7 +29,7 @@ export default {
 		}
 
 		,SET_TITLE (state, title) {
-			document.title = title + ' - ' + siteName
+			document.title = title?title + ' - ' + siteName:siteName
 			state.title = title
 		}
 

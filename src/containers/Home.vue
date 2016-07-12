@@ -33,6 +33,7 @@ export default {
 			return this.$route.query.page || 1
 		}
 		,path: function() {
+			this.$store.dispatch('SET_TITLE', '')
 			return this.$route.path
 		}
 	}

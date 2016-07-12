@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import { host } from '../glob'
 
+
 /*
   @param prop, 'posts' or 'cats'
   @param status, boolean 

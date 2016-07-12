@@ -22,7 +22,7 @@ div(v-if='post')
 
 <script>
 import CatLink from '../components/CatLink.vue'
-import { createUrl, publicRoute  } from '../glob'
+import { createUrl, publicRoute, siteName } from '../glob'
 import { post } from '../vuex/getters'
 import { fetchItems } from '../vuex/actions'
 
@@ -37,6 +37,7 @@ export default {
 	}
 	,computed: {
 		postPath: function() {
+			this.$store.dispatch('SET_TITLE', this.post.title)
 			return createUrl(this.post, '', publicRoute.post)
 		}
 	}

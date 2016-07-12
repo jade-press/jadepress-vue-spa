@@ -6,7 +6,9 @@ import { sync } from 'vuex-router-sync'
 
 import router from './router'
 
-Vue.config.debug = true
+if(process.env.NODE_ENV !== 'production') {
+  Vue.config.debug = true
+}
 
 sync(store, router)
 

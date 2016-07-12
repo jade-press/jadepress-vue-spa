@@ -28,8 +28,19 @@ if(process.env.NODE_ENV !== 'production') {
   plugins = [createLogger()]
 }
 
-export default new Vuex.Store({
+if (module.hot) {
+  module.hot.accept(['./mutations'], () => {
+    const mutations = require('./mutations').default
+    store.hotUpdate({
+      mutations
+    })
+  })
+}
+
+const store = new Vuex.Store({
   state
   ,mutations
   ,plugins
 })
+
+export default store
