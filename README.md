@@ -19,7 +19,6 @@ exports.setting = {
 //...
 //then
 npm i jadepress-vue-spa
-bower install jadepress-vue-spa
 ```
 
 ## test
@@ -30,7 +29,6 @@ bower install jadepress-vue-spa
 git clone https://github.com/jade-press/jadepress-vue-spa.git
 cd jadepress-vue-spa
 npm install
-bower install
 npm run test
 
 ```

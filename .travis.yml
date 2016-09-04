@@ -32,6 +32,5 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
   - sudo apt-get install -y mongodb-org
 before_script:
-  - npm install -g bower
-  - bower install
+  - sudo service mongod start
   - npm i jade-press@latest
